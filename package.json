@@ -1,0 +1,23 @@
+{
+  "name": "syn_file",
+  "version": "1.0.0",
+  "description": "Send text or files between different devices",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lesliepy99/syn_file.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lesliepy99/syn_file/issues"
+  },
+  "homepage": "https://github.com/lesliepy99/syn_file#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

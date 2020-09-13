@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Sample1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" href="./app.css">
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#approach').click(function(){
+                    console.log("This is the client")
+                    $.get('/approach',function(data,status){
+                        alert(data)
+                    })
+                })
+            })
+        </script>
+        
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row " >
+               <div class="col-2"></div>
+               <div class="col-8" style="background-color: aqua; height: 20px" id="board"></div>
+               <div class="col-2"></div>
+            </div>
+
+            <div class="row mx-4" style=" height: 20px">
+               <form action="/receive_text" method="POST" >
+                    <textarea rows="4" cols="50" name="content"></textarea>
+                    <input type="submit">
+                    
+               </form>
+
+               <button id="approach">获取内容</button>
+            </div>
+        </div>
+    </body>
+</html>
