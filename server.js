@@ -17,6 +17,7 @@ app.get('/*',function (req, res){
 })
 app.post('/receive_text',(req,res)=>{
     result_string = req.body['content']
+    res.redirect('/')
 })
 
 app.post('/upload_file',function (req, res){
