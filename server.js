@@ -13,7 +13,6 @@ app.get('/*',function (req, res){
 })
 app.post('/receive_text',(req,res)=>{
     result_string = req.body['content']
-    res.send(result_string+"recieved")
 })
 
 
