@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/lesliepy99/syn_file#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "multer": "^1.4.2"
   }
 }

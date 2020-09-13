@@ -29,14 +29,22 @@
                <div class="col-2"></div>
             </div>
 
-            <div class="row mx-4" style=" height: 20px">
+            <div class="row mx-4" style="  float: clear;">
+                <div>
                <form action="/receive_text" method="POST" >
                     <textarea rows="4" cols="50" name="content"></textarea>
                     <input type="submit">
                     
                </form>
-
+                </div>
                <button id="approach">获取内容</button>
+            </div>
+
+            <div class="row" style="margin: auto;"> 
+                <form action='/upload_file' method="POST" enctype="multipart/form-data">
+                    <input type="file" name="myfile">
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </body>
