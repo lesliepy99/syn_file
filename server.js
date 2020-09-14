@@ -12,6 +12,7 @@ app.use(upload())
 var result_string = "nothing yet"
 var the_path = path.join(__dirname,"files")
 
+
 //Approach the text
 app.get('/approach',(req,res)=>{
     console.log('send')
@@ -32,6 +33,7 @@ app.get('/fresh_list',function (req, res){
             files.forEach(function(file){
                 file_container.push(file)
             })
+            console.log(file_container)
             res.send(file_container)
         }
     })
@@ -67,7 +69,6 @@ app.post('/upload_file',function (req, res){
     res.redirect('/')
     
 })
-
 
 
 const server = app.listen(3000)

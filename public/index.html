@@ -11,12 +11,40 @@
 
         <script>
             $(document).ready(function(){
+
+
+                $("ol").on("click",".file_item",function(){
+                    console.log(jQuery(this).text())
+
+                })
                 $('#approach').click(function(){
                     console.log("This is the client")
                     $.get('/approach',function(data,status){
                         $('#board').html(data)
                     })
                 })
+
+                $('#show_list').click(function(){
+                    console.log("about to fresh")
+                    var root = document.getElementById("display_list")
+                    root.innerHTML = ""
+                    
+                    $.get('/fresh_list',function(data,status){
+                        console.log(typeof(data))
+                        data.forEach(function(item){
+                            console.log(item)
+                            
+                            
+                            $("ol").append('<li><a href="#" class="file_item">'+item+"</a></li>");
+                            
+                        })
+                    
+                    })
+                    
+                })
+
+                
+
             })
         </script>
         
@@ -35,22 +63,23 @@
                   <form action="/receive_text" method="POST" >
                     <textarea rows="4" cols="50" name="content"></textarea><br>
                     <input type="submit" name="提交">
-                    <button id="approach">获取内容</button>
+                    
                   </form>
-                  
+                  <button id="approach">获取内容</button>
                 </div>
-
+                
                 <div class="col-6"> 
-                    <div id="display_list">
-                        
+                    <div >
+                        <ol id="display_list"></ol>
                     </div>
                     <form action='/upload_file' method="POST" enctype="multipart/form-data">
                         <input type="file" name="myfile">
                         <input type="submit">
-                        <button id="show_list">刷新列表</button>
+                        
                     </form>
+                    <button id="show_list">刷新列表</button> 
                 </div>
-              
+                
             </div>
 
             
