@@ -1,0 +1,9 @@
+.center{
+    margin: auto;
+    width: 50%;
+}
+
+#display_list{
+    background-color: blueviolet;
+    height: 10em;
+}
