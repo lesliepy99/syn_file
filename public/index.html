@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="./app.css">
         <script src="/socket.io/socket.io.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script>
@@ -23,29 +24,36 @@
 
     <body>
         <div class="container">
-            <div class="row " >
-               <div class="col-2"></div>
-               <div class="col-8" style="background-color: aqua; height: 20px" id="board"></div>
-               <div class="col-2"></div>
+            <div class="row my-4" >
+               
+               <div class="col" style="background-color: aqua; height: 120px" id="board"></div>
+               
             </div>
 
-            <div class="row mx-4" style="  float: clear;">
-                <div>
-               <form action="/receive_text" method="POST" >
-                    <textarea rows="4" cols="50" name="content"></textarea>
-                    <input type="submit">
-                    
-               </form>
+            <div class="row" style="  float: clear;">
+                <div class='col-6 center'>
+                  <form action="/receive_text" method="POST" >
+                    <textarea rows="4" cols="50" name="content"></textarea><br>
+                    <input type="submit" name="提交">
+                    <button id="approach">获取内容</button>
+                  </form>
+                  
                 </div>
-               <button id="approach">获取内容</button>
+
+                <div class="col-6"> 
+                    <div id="display_list">
+                        
+                    </div>
+                    <form action='/upload_file' method="POST" enctype="multipart/form-data">
+                        <input type="file" name="myfile">
+                        <input type="submit">
+                        <button id="show_list">刷新列表</button>
+                    </form>
+                </div>
+              
             </div>
 
-            <div class="row" style="margin: auto;"> 
-                <form action='/upload_file' method="POST" enctype="multipart/form-data">
-                    <input type="file" name="myfile">
-                    <input type="submit">
-                </form>
-            </div>
+            
         </div>
     </body>
 </html>
