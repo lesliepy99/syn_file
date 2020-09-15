@@ -1,0 +1,38 @@
+https://arxiv.org/pdf/1808.03898.pdf
+https://nlab.engr.uconn.edu/papers/quad.pdf
+https://netflixtechblog.com/toward-a-practical-perceptual-video-quality-metric-653f208b9652
+emustream.mclab.org
+ffmpeg
+h.264, h.265
+ffmpeg.exe -i bitrate1_000.mp4 -i bitrate2_000.mp4 -lavfi libvmaf="model_path=./ffmpeg-vmaf-static-bin/vmaf_v0.6.1.pkl:log_path=VMAF.txt" -report -f null -
+ffmpeg -i "D:\Media\sample.mp4" -c:v libx264 -segment_time 60 -g 9 -sc_threshold 0 -force_key_frames "expr:gte(t,n_forced*9)" -f segment -reset_timestamps 1 "D:\Media\sample_%03d.mp4"
+ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment -reset_timestamps 1 output%03d.mp4
+ffmpeg -i input.avi -b:v 1500k output.mp4
+ffmpeg -i input.mp4 -c:v libx264 -x264-params "nal-hrd=cbr" -b:v 1M -minrate 1M -maxrate 1M -bufsize 2M output.ts
+
+frame number:ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 output000.mkv
+
+
+uncompressed:ffmpeg -i input.mp4 -vcodec rawvideo out.avi
+ffmpeg -i 360p.mkv -q:v 1 -vcodec mpeg4 -y 360p.avi
+
+PFS：ffprobe -v error -select_streams v -of default=noprint_wrappers=1:nokey=1 -show_entries stream=r_frame_rate file.mp4
+
+Resolution:  ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 input.mp4
+
+ZHANG Yuming <zy219@ie.cuhk.edu.hk>
+
+ffmpeg -i <main@720p> -i <reference@1080p> -lavfi "[0:v]scale=1920:1080:flags=bicubic[main];[main][1:v]libvmaf=model_path=/usr/local/share/model/vmaf_v0.6.1.pkl" -f null -
+
+export LD_LIBRARY_PATH=/usr/local/lib
+
+scipy.optimize.curve_fit
+
+
+
+
+
+
+
+
+

@@ -70,5 +70,11 @@ app.post('/upload_file',function (req, res){
     
 })
 
+//Send the file requested by the client
+app.get('/download_file/:name',function (req, res){
+    console.log("received")
+    res.sendFile(__dirname+'/files/'+req.params['name'])
+})
+
 
 const server = app.listen(3000)
