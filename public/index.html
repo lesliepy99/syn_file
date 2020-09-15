@@ -14,13 +14,14 @@
 
 
                 $("ol").on("click",".file_item",function(){
+                    var file_name = jQuery(this).text()
                     console.log(jQuery(this).text())
                     $.get('/download_file/'+jQuery(this).text(),function(data,status){
                         console.log(data)
                         var a = document.getElementById("download_link");
                         var file = new Blob([data], {type: 'text/json'});
                         a.href = URL.createObjectURL(file);
-                        a.download = "the_target_file";
+                        a.download = file_name;
                     })
                     
 

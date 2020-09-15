@@ -12,7 +12,17 @@ app.use(upload())
 var result_string = "nothing yet"
 var the_path = path.join(__dirname,"files")
 
+//Send the file requested by the client
 
+app.get('/download_file/:name',function (req, res){
+
+console.log("received")
+
+console.log(req.params)
+
+res.sendFile(__dirname+'/files/'+req.params['name'])
+
+})
 //Approach the text
 app.get('/approach',(req,res)=>{
     console.log('send')
@@ -68,12 +78,6 @@ app.post('/upload_file',function (req, res){
 
     res.redirect('/')
     
-})
-
-//Send the file requested by the client
-app.get('/download_file/:name',function (req, res){
-    console.log("received")
-    res.sendFile(__dirname+'/files/'+req.params['name'])
 })
 
 
